@@ -36,9 +36,10 @@ public class SeurityController {
     private UserService userService;
 
     @RequestMapping(value = "/security/account", method = RequestMethod.GET)
-    public @ResponseBody
-    User getUserAccount()  {
+    public User getUserAccount() throws NotLoggedInException  {
         User user = userRepo.findByEmail(SecurityUtils.getCurrentLogin());
+        if(user == null)
+        	throw new NotLoggedInException();
         user.setPassword(null);
         return user;
     }

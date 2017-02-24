@@ -15,7 +15,7 @@ public class ToDo {
 	
 	private String text;
 	
-	private boolean isDone;
+	private boolean done;
 	
 	@ManyToOne
 	private User user;
@@ -48,11 +48,11 @@ public class ToDo {
 	}
 
 	public boolean isDone() {
-		return isDone;
+		return done;
 	}
 
 	public void setDone(boolean isDone) {
-		this.isDone = isDone;
+		this.done = isDone;
 	}
 	
 	

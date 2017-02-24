@@ -77,8 +77,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/index.html", "/login.html",
-                "/partials/**", "/template/**", "/", "/error/**");
+        web.ignoring().antMatchers("/resources/**", "/app/**", "/swagger-ui.html","/login.html",
+                "/partials/**", "/template/**", "/", "/error/**","/webjars/**");
     }
 
     @Override
@@ -89,7 +89,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/failure").permitAll()
                 .antMatchers("/h2").permitAll()
-                .antMatchers("/v2/api-docs").hasAnyAuthority("admin")
+                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/configuration/**").permitAll()
+                .antMatchers("/swagger-resources").permitAll()
                 .antMatchers("/users/**").hasAnyAuthority("admin")
                 .antMatchers("/security/**").permitAll()
                 .anyRequest().authenticated()

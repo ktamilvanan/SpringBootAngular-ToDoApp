@@ -1,7 +1,5 @@
 package com.kathiravan.demo.security;
 
-import java.util.ArrayList;
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,7 +8,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.kathiravan.demo.entity.ToDo;
 import com.kathiravan.demo.entity.User;
 import com.kathiravan.demo.repository.UserRepository;
 
